@@ -3,7 +3,7 @@ import {StyledApp} from './styled';
 
 // Custom Hooks
 import {useState} from "react";
-import {useGetPosts} from "../../utils/customHooks/useFetch";
+import {useGetPosts} from "../../utils/customHooks/useFetchPosts";
 
 // Components
 import {Header} from "../Header/Header";
@@ -42,8 +42,8 @@ function App() {
                     <div>
                         <StyledBlueButton href='#' onClick={btnPrev}>Prev</StyledBlueButton>
                         <a>{`< ${page + 1} >`}</a>
-                        <StyledBlueButton href='/sf' onClick={btnNext}>Next</StyledBlueButton>
-                    </div>
+                        <StyledBlueButton href='#' onClick={btnNext}>Next</StyledBlueButton>
+                    </div>  
 
                     {data.map(post => <Post children={post} key={post._id}/>)}
                 </Main>
