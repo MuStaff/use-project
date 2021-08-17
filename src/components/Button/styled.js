@@ -26,5 +26,6 @@ export const StyledBlueButton = styled(StyledButton)`
   :hover {
     background-color: ${props => props.theme.colors.green};
     color: ${props => props.theme.colors.black};
+    box-shadow: 8px 3px 0px 0px ${props => props.theme.colors.darkGray};
   }
 `
