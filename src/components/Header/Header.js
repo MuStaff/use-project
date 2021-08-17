@@ -8,10 +8,10 @@ export const Header = () => {
         <StyledHeader>
             <StyledText>Work console straight from the past</StyledText>
             <Navigate>
-                <Button href='/tea'>Posts</Button>
-                <Button href='/tea'>Users</Button>
-                <Button href='/tea'>Log In</Button>
-                <Button href='/tea'>Sign Up</Button>
+                <Button href='/#'>Posts</Button>
+                <Button href='/#'>Users</Button>
+                <Button href='/#'>Log In</Button>
+                <Button href='/#'>Sign Up</Button>
             </Navigate>
         </StyledHeader>
     )
