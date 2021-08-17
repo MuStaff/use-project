@@ -43,7 +43,7 @@ function App() {
                         <StyledBlueButton href='#' onClick={btnPrev}>Prev</StyledBlueButton>
                         <a>{`< ${page + 1} >`}</a>
                         <StyledBlueButton href='#' onClick={btnNext}>Next</StyledBlueButton>
-                    </div>  
+                    </div>
 
                     {data.map(post => <Post children={post} key={post._id}/>)}
                 </Main>
