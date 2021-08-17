@@ -5,10 +5,8 @@ import { useState } from "react";
 export const Navigate = ({ children }) => {
   const [time, setTime] = useState(0);
   setTimeout(() => {
-    setTime(DateTime.local().toFormat("dd EEEE ZZZZ"));
+    setTime(DateTime.local().toFormat("( hh:mm:ss )"));
   }, 1000);
-  // const RealTime = DateTime.local().toFormat('dd EEEE ZZ');
-  // console.log(RealTime)
 
   return (
     <StyledNavigate>
