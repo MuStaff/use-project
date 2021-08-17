@@ -1,9 +1,6 @@
-import {StyledButton} from "./styled";
+import { StyledButton } from "./styled";
 
-export const Button = ({children, ...props}) => {
-    return (
-        <StyledButton {...props}>
-            {children}
-        </StyledButton>
-    )
-}
+export const Button = ({ children, ...props }) => {
+  //dfgoj
+  return <StyledButton {...props}>{children}</StyledButton>;
+};
