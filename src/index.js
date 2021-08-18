@@ -18,14 +18,14 @@ const BasicsStyled = createGlobalStyle`
   body {
     background-color: ${props => (props.theme.colors.blue)};
     border: 6px ridge ${props => (props.theme.colors.gray)};
-    //box-shadow: 6px 0px 18px -2px rgba(0, 0, 0, 0.8) inset;
-    //padding: 1rem;
+    /* box-shadow: 6px 0px 18px -2px rgba(0, 0, 0, 0.8) inset; */
+    /* padding: 1rem; */
     color: ${props => (props.theme.colors.black)};
     font-family: 'Test', serif;
     font-size: ${props => (props.theme.fontSizes.small)};
     box-sizing: border-box;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
   }
 `;
 

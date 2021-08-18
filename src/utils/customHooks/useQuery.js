@@ -5,7 +5,7 @@ import {getByTestId} from "@testing-library/react";
 export const useQuery = (url, onRender = false) => {
     const [result, setResult] = useState({
         data: [],
-        load: false,
+        load: true,
         err: ""
     })
 

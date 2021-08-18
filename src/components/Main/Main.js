@@ -1,12 +1,10 @@
-import {StyledMain, StyledWrap, StyledTitleContainer} from "./styled";
+import { StyledMain, StyledWrap, StyledTitleContainer } from "./styled";
 
-export const Main = ({children}) => {
-    return (
-        <StyledWrap>
-            <StyledTitleContainer>Title</StyledTitleContainer>
-            <StyledMain>
-                {children}
-            </StyledMain>
-        </StyledWrap>
-    )
-}
+export const Main = ({ children }, { title = "Title", ...props }) => {
+  return (
+    <StyledWrap>
+      <StyledTitleContainer>{title}</StyledTitleContainer>
+      <StyledMain>{children}</StyledMain>
+    </StyledWrap>
+  );
+};
