@@ -11,6 +11,7 @@ import { StyledContainer } from "../Container/styled";
 import { Main } from "../Main/Main";
 import { Post } from "../Post/Post";
 import { Loader } from "../Loader/Loader";
+import { Modal } from "../Modal/Modal"
 import { StyledBlueButton } from "../Button/styled";
 import { BrowserRouter } from "react-router-dom";
 
@@ -21,7 +22,8 @@ function App() {
   const { data, load, err, getData } = useGetPosts(count, page, true);
 
   const btnNext = () => {
-    if (page >= 0) setPage(page + 1);
+    if (page >= 0 && (page + 1) * count < data.pagination.total)
+      setPage(page + 1);
   };
 
   const btnPrev = () => {
@@ -40,7 +42,8 @@ function App() {
       </BrowserRouter>
       <StyledContainer>
         {load && <Loader />}
-        {!load && (
+
+        {!load && data && (
           <Main>
             <StyledBlueButton href="#" onClick={getAllPost}>
               Get all posts
@@ -50,7 +53,9 @@ function App() {
               <StyledBlueButton href="#" onClick={btnPrev}>
                 Prev
               </StyledBlueButton>
-              <a>{`< ${page + 1} >`}</a>
+              <div style={{ margin: "0 20px", display: "inline-block" }}>{`< ${
+                page + 1
+              } >`}</div>
               <StyledBlueButton href="#" onClick={btnNext}>
                 Next
               </StyledBlueButton>
@@ -60,6 +65,12 @@ function App() {
               <Post children={post} key={post._id} />
             ))}
           </Main>
+        )}
+
+        {!load && err && (
+          <Modal>
+            {err}
+          </Modal>
         )}
       </StyledContainer>
     </StyledApp>
