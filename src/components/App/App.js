@@ -10,7 +10,6 @@ import { Header } from "../Header/Header";
 import { StyledContainer } from "../Container/styled";
 import { Main } from "../Main/Main";
 import { Post } from "../Post/Post";
-import { Button } from "../Button/Button";
 import { StyledBlueButton } from "../Button/styled";
 import { BrowserRouter } from "react-router-dom";
 
@@ -34,7 +33,7 @@ function App() {
     setCount(0);
     setPage(0);
   };
-  console.log(data);
+  console.log('Data info: ', data);
   return (
     <StyledApp>
       <BrowserRouter>

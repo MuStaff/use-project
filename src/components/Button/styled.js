@@ -5,7 +5,6 @@ export const StyledButton = styled.a`
   height: 1.5rem;
   color: ${props => props.theme.colors.black};
   background-color: transparent;
-  //transition: 0.2s linear;
   &:first-letter {
     color: ${props => props.theme.colors.blue};
   }

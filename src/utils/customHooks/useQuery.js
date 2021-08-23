@@ -1,6 +1,4 @@
 import {useCallback, useEffect, useState} from "react";
-import {getByTestId} from "@testing-library/react";
-// https://nodejs-test-api-blog.herokuapp.com/api/v1
 
 export const useQuery = (url, onRender = false) => {
     const [result, setResult] = useState({
@@ -14,7 +12,7 @@ export const useQuery = (url, onRender = false) => {
         try {
             const response = await fetch(url);
             const posts = await response?.json();
-            setResult(prev => {return {...prev, data: posts, load: false}})
+            setResult(prev => {return {...prev, data: posts.data, load: false}})
         } catch (error) {
             setResult(prev => {return {...prev, load: false, err: error}})
         }
