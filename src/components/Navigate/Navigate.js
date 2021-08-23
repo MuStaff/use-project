@@ -7,8 +7,6 @@ export const Navigate = ({ children }) => {
   setTimeout(() => {
     setTime(DateTime.local().toFormat("dd EEEE ZZZZ"));
   }, 1000);
-  // const RealTime = DateTime.local().toFormat('dd EEEE ZZ');
-  // console.log(RealTime)
 
   return (
     <StyledNavigate>

@@ -11,21 +11,21 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 const initialState = {
     token: null,
     currUser: null,
-    isAuth: null,
+    isAuth: true,
 }
 
 export const authorizationSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        createUser: (state) => {
+        createUser: (state, action) => {
             state.value += 1
         },
-        getCurUserByToken: (state) => {
+        getCurUserByToken: (state, action) => {
             state.value -= 1
         },
-        getAuthToken: (state) => {
-            state.value -= 1
+        getAuthToken: (state, action) => {
+            state.token = action.payload;
         },
     },
     // extraReducers: (builder) => {

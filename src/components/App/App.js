@@ -12,6 +12,7 @@ import {Main} from "../Main/Main";
 import {Post} from "../Post/Post";
 import {Button} from "../Button/Button";
 import {StyledBlueButton} from "../Button/styled";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
     const [page, setPage] = useState(0);
@@ -34,7 +35,9 @@ function App() {
     console.log(data)
     return (
         <StyledApp>
-            <Header/>
+            <BrowserRouter>
+                <Header/>
+            </BrowserRouter>
             <StyledContainer>
                 <Main>
                     <StyledBlueButton href='#' onClick={getAllPost}>Get all posts</StyledBlueButton>
@@ -43,7 +46,7 @@ function App() {
                         <StyledBlueButton href='#' onClick={btnPrev}>Prev</StyledBlueButton>
                         <a>{`< ${page + 1} >`}</a>
                         <StyledBlueButton href='#' onClick={btnNext}>Next</StyledBlueButton>
-                    </div>  
+                    </div>
 
                     {data.map(post => <Post children={post} key={post._id}/>)}
                 </Main>
