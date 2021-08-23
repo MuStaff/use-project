@@ -12,15 +12,13 @@ import { Main } from "../Main/Main";
 import { Post } from "../Post/Post";
 import { Button } from "../Button/Button";
 import { StyledBlueButton } from "../Button/styled";
-import Loader from "../Loader/Loader";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const [page, setPage] = useState(0);
   const [count, setCount] = useState(3);
 
   const { data, load, err, getData } = useGetPosts(count, page, true);
-
-  console.log(load);
 
   const btnNext = () => {
     if (page >= 0) setPage(page + 1);
@@ -34,37 +32,32 @@ function App() {
     setCount(0);
     setPage(0);
   };
-
   console.log(data);
-  
   return (
     <StyledApp>
-      <Header />
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
       <StyledContainer>
-        {load && <Loader />}
-        {!load && (
-          <Main>
-            <StyledBlueButton href="#" onClick={getAllPost}>
-              Get all posts
+        <Main>
+          <StyledBlueButton href="#" onClick={getAllPost}>
+            Get all posts
+          </StyledBlueButton>
+
+          <div>
+            <StyledBlueButton href="#" onClick={btnPrev}>
+              Prev
             </StyledBlueButton>
+            <a>{`< ${page + 1} >`}</a>
+            <StyledBlueButton href="#" onClick={btnNext}>
+              Next
+            </StyledBlueButton>
+          </div>
 
-            <div>
-              <StyledBlueButton href="#" onClick={btnPrev}>
-                Prev
-              </StyledBlueButton>
-              <div style={{ margin: "0 20px", display: "inline-block" }}>{`< ${
-                page + 1
-              } >`}</div>
-              <StyledBlueButton href="#" onClick={btnNext}>
-                Next
-              </StyledBlueButton>
-            </div>
-
-            {data.map((post) => (
-              <Post children={post} key={post._id} />
-            ))}
-          </Main>
-        )}
+          {data.map((post) => (
+            <Post children={post} key={post._id} />
+          ))}
+        </Main>
       </StyledContainer>
     </StyledApp>
   );
