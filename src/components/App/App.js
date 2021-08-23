@@ -20,8 +20,10 @@ function App() {
 
   const { data, load, err, getData } = useGetPosts(count, page, true);
 
+  console.log(data.pagination)
+
   const btnNext = () => {
-    if (page >= 0) setPage(page + 1);
+    if (page >= 0 && (page+1) * count < data.pagination.total) setPage(page + 1);
   };
 
   const btnPrev = () => {
@@ -50,7 +52,7 @@ function App() {
               <StyledBlueButton href="#" onClick={btnPrev}>
                 Prev
               </StyledBlueButton>
-              <a>{`< ${page + 1} >`}</a>
+              <div style={{ margin: "0 20px", display: "inline-block" }}>{`< ${page + 1} >`}</div>
               <StyledBlueButton href="#" onClick={btnNext}>
                 Next
               </StyledBlueButton>
