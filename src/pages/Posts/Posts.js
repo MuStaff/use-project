@@ -1,10 +1,6 @@
-import React from 'react';
-import {StyledPosts} from "./styled";
+import React from "react";
+import { StyledPosts } from "./styled";
 
-export const Posts = ({children}) => {
-    return (
-        <StyledPosts>
-            {children}
-        </StyledPosts>
-    );
-}
+export const Posts = ({ children }) => {
+  return <StyledPosts>{children}</StyledPosts>;
+};

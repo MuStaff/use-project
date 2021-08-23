@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 
-function Loader() {
+export function Loader() {
   const [check, setCheck] = useState(false);
 
   useEffect(() => {
@@ -59,5 +59,3 @@ function Loader() {
     )
   );
 }
-
-export default Loader;

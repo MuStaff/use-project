@@ -10,14 +10,13 @@ import { Header } from "../Header/Header";
 import { StyledContainer } from "../Container/styled";
 import { Main } from "../Main/Main";
 import { Post } from "../Post/Post";
+import { Loader } from "../Loader/Loader";
 import { StyledBlueButton } from "../Button/styled";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const [page, setPage] = useState(0);
   const [count, setCount] = useState(3);
-
-  // test
 
   const { data, load, err, getData } = useGetPosts(count, page, true);
 
@@ -33,32 +32,35 @@ function App() {
     setCount(0);
     setPage(0);
   };
-  console.log('Data info: ', data);
+
   return (
     <StyledApp>
       <BrowserRouter>
         <Header />
       </BrowserRouter>
       <StyledContainer>
-        <Main>
-          <StyledBlueButton href="#" onClick={getAllPost}>
-            Get all posts
-          </StyledBlueButton>
-
-          <div>
-            <StyledBlueButton href="#" onClick={btnPrev}>
-              Prev
+        {load && <Loader />}
+        {!load && (
+          <Main>
+            <StyledBlueButton href="#" onClick={getAllPost}>
+              Get all posts
             </StyledBlueButton>
-            <a>{`< ${page + 1} >`}</a>
-            <StyledBlueButton href="#" onClick={btnNext}>
-              Next
-            </StyledBlueButton>
-          </div>
 
-          {data.map((post) => (
-            <Post children={post} key={post._id} />
-          ))}
-        </Main>
+            <div>
+              <StyledBlueButton href="#" onClick={btnPrev}>
+                Prev
+              </StyledBlueButton>
+              <a>{`< ${page + 1} >`}</a>
+              <StyledBlueButton href="#" onClick={btnNext}>
+                Next
+              </StyledBlueButton>
+            </div>
+
+            {data.data.map((post) => (
+              <Post children={post} key={post._id} />
+            ))}
+          </Main>
+        )}
       </StyledContainer>
     </StyledApp>
   );

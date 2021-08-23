@@ -6,5 +6,5 @@ export const StyledHeader = styled.header`
   justify-content: left;
   height: 3rem;
   margin-bottom: 1rem;
-  background-color: ${props => props.theme.colors.gray};
-`
+  background-color: ${(props) => props.theme.colors.gray};
+`;

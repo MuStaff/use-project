@@ -1,6 +1,3 @@
 import styled from "styled-components";
 
-
-export const StyledLogOut = styled.div`
-
-`
+export const StyledLogOut = styled.div``;

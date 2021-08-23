@@ -1,12 +1,8 @@
-import React from 'react';
-import {StyledUsers} from "./styled";
+import React from "react";
+import { StyledUsers } from "./styled";
 
-const Users = ({children}) => {
-    return (
-        <StyledUsers>
-            {children}
-        </StyledUsers>
-    );
+const Users = ({ children }) => {
+  return <StyledUsers>{children}</StyledUsers>;
 };
 
 export default Users;

@@ -5,4 +5,4 @@ export const StyledNavigate = styled.nav`
   a {
     margin-right: 20px;
   }
-`
+`;
