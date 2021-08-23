@@ -18,6 +18,8 @@ function App() {
   const [page, setPage] = useState(0);
   const [count, setCount] = useState(3);
 
+  // test
+
   const { data, load, err, getData } = useGetPosts(count, page, true);
 
   const btnNext = () => {
