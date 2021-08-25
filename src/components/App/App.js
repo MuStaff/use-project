@@ -19,9 +19,7 @@ function App() {
   const [count, setCount] = useState(3);
 
   const { data, load, err, getData } = useGetPosts(count, page, true);
-
-  console.log(data.pagination)
-
+  
   const btnNext = () => {
     if (page >= 0 && (page+1) * count < data.pagination.total) setPage(page + 1);
   };

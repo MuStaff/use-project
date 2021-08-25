@@ -2,7 +2,7 @@ import { StyledPost } from "./styled";
 
 export const Post = ({ children }) => {
   const { _id: id, title, description, postedBy, likes, image } = children;
-  const mainURL = "https://nodejs-test-api-blog.herokuapp.com/api/v1";
+  const mainURL = "https://nodejs-test-api-blog.herokuapp.com/api/v1/";
 
   return (
     <StyledPost>
