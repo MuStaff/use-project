@@ -9,6 +9,7 @@ export const StyledMain = styled.div`
 `;
 
 export const StyledWrap = styled.div`
+  margin: 30px;
   background-color: ${(props) => props.theme.colors.gray};
   padding: 10px;
   box-shadow: 30px 20px 0px 0px ${(props) => props.theme.colors.black};

@@ -1,7 +1,7 @@
 import { useQuery } from "./useQuery";
 
-export const useFetchPosts = (count = 1, page = 0, onRender = false) => {
-  const url = "https://nodejs-test-api-blog.herokuapp.com/api/v1/posts";
+export const useFetchUsers = (count = 1, page = 0, onRender = false) => {
+  const url = "https://nodejs-test-api-blog.herokuapp.com/api/v1/users";
 
   let customUrl = `${url}?limit=${count}&skip=${page * count}`;
 
