@@ -1,83 +1,81 @@
-// Style
-import { StyledApp } from "./styled";
-
 // Custom Hooks
 import { useState } from "react";
 import { useFetchPosts } from "../../utils/customHooks/useFetchPosts";
 import { useFetchUsers } from "../../utils/customHooks/useFetchUsers";
 
 // Components
-import { Header } from "../../components/Header/Header";
-import { StyledContainer } from "../../components/Container/styled";
-import { Main } from "../../components/Main/Main";
+// import { Header } from "../Header/Header";
+// import { StyledContainer } from "../Container/styled";
+import { Window } from "../../components/Window/Window";
 import { Post } from "../../components/Post/Post";
 import { User } from "../../components/User/User";
 import { Loader } from "../../components/Loader/Loader";
-import { Modal } from "../../components/Modal/Modal";
+// import { Modal } from "../Modal/Modal";
 import { ShowList } from "../../components/ShowList/ShowList";
-import { StyledBlueButton } from "../../components/Button/styled";
-import { BrowserRouter } from "react-router-dom";
+import { Button } from "../../components/Button/Button";
+import { ButtonBlue } from "../../components/ButtonBlue/ButtonBlue";
+// import { BrowserRouter } from "react-router-dom";
 
 function Users() {
   const [page, setPage] = useState(0);
   const [count, setCount] = useState(3);
 
-  // const { data, load, err, getData } = useFetchPosts(count, page, true);
   const { data, load, err, getData } = useFetchUsers(count, page, true);
 
   const btnNext = () => {
-    if (page >= 0 && (page + 1) * count < data.pagination.total)
+    if (page >= 0 && (page + 1) * count < data.pagination.total) {
+      if (!count) {
+        setCount(3);
+      }
       setPage(page + 1);
+    }
   };
 
   const btnPrev = () => {
-    if (page > 0) setPage(page - 1);
+    if (page > 0) {
+      if (!count) {
+        setCount(3);
+      }
+      setPage(page - 1);
+    }
   };
 
-  const getAllPosts = () => {
-    setCount(0);
-    setPage(0);
-  };
-
-  const getAllUsers = () => {
+  const showAll = () => {
     setCount(0);
     setPage(0);
   };
 
   return (
-    <StyledContainer>
+    <>
       {load && <Loader />}
 
       {!load && data && (
-        <Main title="Posts">
-          <StyledBlueButton href="#" onClick={getAllPosts}>
-            Get all posts
-          </StyledBlueButton>
-
-          {/* <StyledBlueButton href="#" onClick={getAllUsers}>
-              Get all users
-            </StyledBlueButton> */}
-
+        <Window title="Users">
           <div>
-            <StyledBlueButton href="#" onClick={btnPrev}>
+            <ButtonBlue href="#" onClick={btnPrev}>
               Prev
-            </StyledBlueButton>
+            </ButtonBlue>
 
             <div style={{ margin: "0 20px", display: "inline-block" }}>
-              {`< ${page + 1} of ${Math.ceil(data.pagination.total / count)} >`}
+              {`< ${page + 1} of ${Math.ceil(
+                data.pagination.total / (count || data.pagination.total)
+              )} >`}
             </div>
 
-            <StyledBlueButton href="#" onClick={btnNext}>
+            <ButtonBlue href="#" onClick={btnNext}>
               Next
-            </StyledBlueButton>
+            </ButtonBlue>
           </div>
-
           <ShowList data={data.data} component={User} />
-        </Main>
+
+          <ButtonBlue href="#" onClick={showAll}>
+            Show all...
+          </ButtonBlue>
+        </Window>
       )}
 
-      {!load && err && <Main title={"Error!"}>{err?.error}</Main>}
-    </StyledContainer>
+      {!load && err && <Window title={"Error!"}>{err?.error}</Window>}
+    </>
   );
 }
 

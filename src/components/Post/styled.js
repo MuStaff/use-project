@@ -1,7 +1,11 @@
 import styled from "styled-components";
-import { StyledMain } from "../Main/styled";
 
-export const StyledPost = styled(StyledMain)`
+export const StyledPost = styled.div`
+  border-right: thick double ${(props) => props.theme.colors.black};
+  border-bottom: thick double ${(props) => props.theme.colors.black};
+  border-left: 2px solid ${(props) => props.theme.colors.black};
+  border-top: 2px solid ${(props) => props.theme.colors.black};
+  padding: 10px;
   margin-bottom: 4px;
 
   & p {

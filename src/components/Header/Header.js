@@ -7,9 +7,9 @@ import PublicRoute from "../../utils/routing/PublicRoute";
 import PrivateRoute from "../../utils/routing/PrivateRoute";
 
 // Components
-import { Posts } from "../../pages/Posts/Posts";
 import { useSelector } from "react-redux";
 import { login } from "../../utils/routing";
+import Posts from "../../pages/Posts/Posts";
 import Users from "../../pages/Users/Users";
 
 export const Header = () => {
